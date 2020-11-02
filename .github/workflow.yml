@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on:ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+          - name: use Golang
+            uses: actions/step-go@v1
+            with:
+              go-version: "go.15.2"
+          - name: Build normal
+            run: |
+              go get github.com/aws/aws-xray-sdk-go@${{ github.sha }}
+              CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o normal-linux-x64 aws-xray-sdk-go-sample/main.go
