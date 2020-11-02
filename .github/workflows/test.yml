@@ -23,5 +23,4 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
-        go get github.com/aws/aws-xray-sdk-go@b319307f38f328519995567798b9acfcbca3c807
-        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o normal-linux-x64 aws-xray-sdk-go-sample/main.go
+        go get github.com/aws/aws-xray-sdk-go@95821db08ed031914e88b3a7f06c95a943679375
